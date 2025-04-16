@@ -50,77 +50,28 @@ export default function Home() {
                 alignItems: "center",
                 flexWrap: "wrap",
                 flexDirection: "column",
+                color: "#000", // Font color changed to black
               }}
             >
               <div className={classes.HomeCardWrap}>
                 <h1 className={classes.pageHeading}>Assign Roles</h1>
-                <Link
-                  to="/roleAdmin"
-                  style={{ textDecoration: "none", color: "#fff" }}
-                >
-                  <Button
-                    className={classes.HomeBtn}
-                    size="large"
-                    variant="outlined"
-                    color="primary"
-                  >
-                    Assign
-                  </Button>
+                <Link to="/roleAdmin" style={{ textDecoration: "none" }}>
+                  <Button className={classes.HomeBtn}>Assign</Button>
                 </Link>
                 <br />
 
                 <h1 className={classes.pageHeading}>Visit As</h1>
-                <Link
-                  to="/manufacturer/manufacture"
-                  style={{ textDecoration: "none", color: "#fff" }}
-                >
-                  <Button
-                    className={classes.HomeBtn}
-                    size="large"
-                    variant="outlined"
-                    color="primary"
-                  >
-                    Manufacturer
-                  </Button>
+                <Link to="/manufacturer/manufacture" style={{ textDecoration: "none" }}>
+                  <Button className={classes.HomeBtn}>Farmer</Button>
                 </Link>
-                <Link
-                  to="/ThirdParty/allProducts"
-                  style={{ textDecoration: "none", color: "#fff" }}
-                >
-                  <Button
-                    className={classes.HomeBtn}
-                    size="large"
-                    variant="outlined"
-                    color="primary"
-                  >
-                    Third party
-                  </Button>
+                <Link to="/ThirdParty/allProducts" style={{ textDecoration: "none" }}>
+                  <Button className={classes.HomeBtn}>Manufacturer</Button>
                 </Link>
-                <Link
-                  to="/DeliveryHub/receive"
-                  style={{ textDecoration: "none", color: "#fff" }}
-                >
-                  <Button
-                    className={classes.HomeBtn}
-                    size="large"
-                    variant="outlined"
-                    color="primary"
-                  >
-                    delivery hub
-                  </Button>
+                <Link to="/DeliveryHub/receive" style={{ textDecoration: "none" }}>
+                  <Button className={classes.HomeBtn}>Delivery Hub</Button>
                 </Link>
-                <Link
-                  to="/Customer/buy"
-                  style={{ textDecoration: "none", color: "#fff" }}
-                >
-                  <Button
-                    className={classes.HomeBtn}
-                    size="large"
-                    variant="outlined"
-                    color="primary"
-                  >
-                    customer
-                  </Button>
+                <Link to="/Customer/buy" style={{ textDecoration: "none" }}>
+                  <Button className={classes.HomeBtn}>Customer</Button>
                 </Link>
               </div>
             </Grid>

@@ -21,8 +21,14 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    backgroundColor: "#f9f9fb",
+    minHeight: "100vh",
   },
   appBar: {
+    backgroundColor: "#144729",
+    color: "#fff",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+    zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -38,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: "#fff",
   },
   hide: {
     display: "none",
@@ -48,20 +55,23 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "#09126d",
+    backgroundColor: "#144729",
     color: "#fff",
+    boxShadow: "4px 0 10px rgba(0,0,0,0.1)",
   },
   drawerHeader: {
     display: "flex",
     alignItems: "center",
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
+    justifyContent: "space-between",
+    padding: theme.spacing(0, 2),
     ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
+    fontWeight: 600,
+    fontSize: "1.1rem",
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+    backgroundColor: "#f4f6f8",
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -77,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PersistentDrawerLeft({ pageTitle,navItems, children }) {
+export default function PersistentDrawerLeft({ pageTitle, navItems, children }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
@@ -112,17 +122,18 @@ export default function PersistentDrawerLeft({ pageTitle,navItems, children }) {
           <Typography
             variant="h6"
             noWrap
-            style={{ display: "flex", alignItems: "center" }}
+            style={{ display: "flex", alignItems: "center", fontWeight: 600 }}
           >
             <img
-              alt="."
+              alt="logo"
               src="/logo.png"
-              style={{ height: "45px", width: "auto" }}
+              style={{ height: "40px", marginRight: 10 }}
             />
-            &nbsp;SupplyChain-Dapp
+            AGRI-CHAIN
           </Typography>
         </Toolbar>
       </AppBar>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -133,7 +144,7 @@ export default function PersistentDrawerLeft({ pageTitle,navItems, children }) {
         }}
       >
         <div className={classes.drawerHeader}>
-        <ListItemText><b>{pageTitle}</b></ListItemText>
+          <span>{pageTitle}</span>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
               <ChevronLeftIcon style={{ color: "#fff" }} />
@@ -142,62 +153,69 @@ export default function PersistentDrawerLeft({ pageTitle,navItems, children }) {
             )}
           </IconButton>
         </div>
+
         <List>
           <Link to="/" style={{ textDecoration: "none", color: "#fff" }}>
-            <ListItem>
+            <ListItem
+              button
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#14288c")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+            >
               <ListItemText>Home</ListItemText>
             </ListItem>
           </Link>
-          <Link
-            to="/explorer"
-            style={{ textDecoration: "none", color: "#fff" }}
-          >
-            <ListItem>
+          <Link to="/explorer" style={{ textDecoration: "none", color: "#fff" }}>
+            <ListItem
+              button
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#14288c")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+            >
               <ListItemText>Explorer</ListItemText>
             </ListItem>
           </Link>
         </List>
+
         <List>
-          {navItems.length !== 0 ? (
+          {navItems.length !== 0 &&
             navItems.map((item) => (
               <Link
+                key={item[0]}
                 to={item[1]}
                 style={{ textDecoration: "none", color: "#fff" }}
               >
-                <ListItem button key={item[0]}>
+                <ListItem
+                  button
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "#14288c")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                >
                   <ListItemText primary={item[0]} />
                 </ListItem>
               </Link>
-            ))
-          ) : (
-            <> </>
-          )}
+            ))}
         </List>
+
         <div
-          style={{ height: "100%", display: "flex", alignItems: "flex-end" }}
+          style={{
+            marginTop: "auto",
+            padding: "1rem 0",
+            borderTop: "1px solid #444",
+            textAlign: "center",
+            fontWeight: 500,
+            fontSize: "0.9rem",
+          }}
         >
-          <div
-            style={{
-              width: "100%",
-              height: "70px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              fontWeight: 500,
-              fontSize: 17,
-              borderTop: "1px solid #44a",
-            }}
+          By Team SMS &nbsp;&nbsp;
+          <a
+            style={{ textDecoration: "none" }}
+            href="https://github.com/Teamsms-18/Agricultural_Supplychain_Management_System"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            By Team SMs &nbsp;&nbsp;
-            <a
-              style={{ textDecoration: "none" }}
-              href="https://github.com/rishav4101/eth-supplychain-dapp"
-            >
-              <GitHubIcon style={{ color: "#fff" }} />
-            </a>
-          </div>
+            <GitHubIcon style={{ color: "#fff" }} />
+          </a>
         </div>
       </Drawer>
+
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,

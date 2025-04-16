@@ -3,7 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 export const useStyles = makeStyles({
   pageWrap: {
     textAlign: "center",
-    color: "#1a237e",
+    color: "#000",
+    backgroundColor: "#f4f6f8", // Updated background color (light gray)
+    minHeight: "100vh",
+    padding: 20,
   },
   pageHeading: {
     textAlign: "center",
@@ -16,9 +19,10 @@ export const useStyles = makeStyles({
     width: "100%",
     maxWidth: 1200,
     margin: "5px auto",
-    border: "2px solid #1a237e",
+    border: "2px solidrgb(197, 197, 197)",
     borderRadius: 10,
     boxShadow: "2px 2px 10px #9fa8da",
+    backgroundColor: "#ffffff", // White background for table
   },
   TableContainer: {
     maxHeight: 600,
@@ -48,6 +52,7 @@ export const useStyles = makeStyles({
     margin: "30px auto",
     padding: 20,
     borderRadius: 10,
+    backgroundColor: "#ffffff", // White background for form
     boxShadow: "2px 2px 10px #9fa8da",
   },
 
@@ -66,6 +71,7 @@ export const useStyles = makeStyles({
   ProductPaper: {
     padding: 10,
     borderRadius: 10,
+    backgroundColor: "#ffffff", // White background for product
     boxShadow: "2px 2px 10px #9fa8da",
     border: "2px solid #1a237e",
   },
@@ -87,6 +93,7 @@ export const useStyles = makeStyles({
     border: "2px solid #1a237e",
     borderRadius: 10,
     boxShadow: "2px 2px 10px #9fa8da",
+    backgroundColor: "#ffffff", // White background for table
   },
 
   //Modal
@@ -96,18 +103,18 @@ export const useStyles = makeStyles({
     justifyContent: "center",
   },
   paper: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff", // White background for modal
     padding: 15,
     outline: "none",
     width: "min(90%, 650px)",
     height: "80%",
-    border: "2px solid #1a237e",
+    border: "2px solidrgb(253, 253, 253)",
     borderRadius: 10,
     boxShadow: "2px 2px 10px #9fa8da",
     overflow: "scroll",
   },
   Reciptpaper: {
-    backgroundColor: "#fff",
+    backgroundColor: "#ffffff", // White background for receipt
     border: "0px solid #000",
     padding: 15,
     outline: "none",
@@ -145,15 +152,27 @@ export const useStyles = makeStyles({
 
   //Home
   HomeBtn: {
-    margin: 10,
-  },
+    margin: "10px",
+    background: "linear-gradient(135deg, #66bb6a, #43a047)", // Green gradient
+    color: "#fff",
+    fontWeight: 600,
+    padding: "10px 25px",
+    borderRadius: "30px",
+    transition: "all 0.3s ease-in-out",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    "&:hover": {
+      background: "linear-gradient(135deg, #43a047, #2e7d32)",
+      transform: "scale(1.05)",
+      boxShadow: "0 6px 10px rgba(0, 0, 0, 0.2)",
+    },
+  },  
   HomeCardWrap: {
     maxWidth: 500,
     width: "90%",
     padding: 20,
     borderRadius: 10,
-    boxShadow: "2px 2px 10px #9fa8da",
-    border: "2px solid #1a237e",
+    boxShadow: "2px 2px 10px rgb(0, 0, 0)",
+    border: "2px solidrgb(54, 219, 49)",
     margin: "10px auto",
   },
 });
